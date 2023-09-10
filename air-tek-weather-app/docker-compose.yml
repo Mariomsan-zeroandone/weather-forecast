@@ -1,20 +1,20 @@
 # OPTIONAL: Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
 
-version: '3.4'
+version: "3.4"
 
 services:
   infraweb:
     image: infraweb
     platform: linux/amd64
-    depends_on: 
+    depends_on:
       - infraapi
     build:
       context: .
       dockerfile: infra-web/Dockerfile
-    environment: 
+    environment:
       ApiAddress: http://infraapi:5000/WeatherForecast
     ports:
-      - 3000:5000
+      - 3000:3000
   infraapi:
     image: infraapi
     platform: linux/amd64
